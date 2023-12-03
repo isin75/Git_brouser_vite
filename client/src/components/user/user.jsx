@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react'
 import { Link, useLoaderData } from 'react-router-dom'
@@ -11,7 +12,7 @@ const User = () => {
       <div className="flex flex-col justify-center items-center">
         <div className="flex flex-col bg-[#161B22] p-10 rounded-xl">
           <div className="flex flex-col select-none justify-between items-center overflow-auto h-[350px] text-white px-3">
-            {!userRepo && userRepo.length > 0 ? (
+            {userRepo.length > 0 ? (
               userRepo.map((repo) => (
                 <Link to={`/${userName}/${repo.name}`} key={repo.id}>
                   {repo.name}
@@ -38,7 +39,10 @@ export const repoLoader = async ({ params }) => {
     const userRepo = await data
     return { userRepo, userName }
   } catch (err) {
-    const userRepo = ''
+    if (err.response && err.response.status === 404) {
+      console.log('User not found')
+    }
+    const userRepo = []
     return { userRepo, userName }
   }
 }
