@@ -1,5 +1,3 @@
 {
-  "redirects": [
-    { "source": "/(.*)", "destination": "/client/main.jsx"}
-  ]
+  "rewrites": [{ "source": "/(.*)", "destination": "/client/main.jsx" }]
 }
