@@ -1,1 +1,5 @@
-{ "source": "/*", "destination": "./client/main.jsx" }
+{
+  "redirects": [
+    { "source": "/*", "destination": "/client/main.jsx"}
+  ]
+}
