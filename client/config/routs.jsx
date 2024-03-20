@@ -15,7 +15,7 @@ const Routers = () => {
           <Route path="/" element={<SearchBlock />} />
           <Route path=":userName" element={<User />} loader={repoLoader} />
           <Route path=":userName/:repository" element={<Repo />} loader={readLoader} />
-          <Route path="home" element={<Home />} />
+          <Route path="/home" element={<Home />} />
         </Route>
       </Routes>
     </Router>
