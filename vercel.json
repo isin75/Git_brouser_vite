@@ -1,5 +1,5 @@
 {
   "redirects": [
-    { "source": "/*", "destination": "/client/main.jsx"}
+    { "source": "/(.*)", "destination": "/client/main.jsx"}
   ]
 }
